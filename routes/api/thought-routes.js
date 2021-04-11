@@ -19,26 +19,17 @@ router
 router
     .route('/:id')
     .get(getThoughtById)
+    .put(updateThought)
 
 // /api/thoughts/<userId>
 router
     .route('/:userId').post(addThought)
-    // .put(updateThought)
 
 // /api/thoughts/<userId>/<thoughtId>
 router
     .route('/:userId/:thoughtId')
-    .put(addReaction)
+    .post(addReaction)
     .delete(removeThought)
-
-
-// router
-//   .route('/:userId/:reactionId')
-//   .put(addReaction)
-//   .delete(removeThought)
-
-// // /api/thoughts/<userId>/<thoughtId>
-// router.route('/:userId/:thoughtId').delete(removeThought);
 
 router.route('/:userId/:thoughtId/:reactionId').delete(removeReaction);
 
